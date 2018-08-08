@@ -1,0 +1,208 @@
+﻿info:
+  description: main config file
+
+eureka:
+  instance:
+    preferIpAddress: true
+
+spring.activemq.broker-url: tcp://localhost:61616
+spring.activemq.user: admin
+spring.activemq.password: admin
+############################################################################################
+
+############################################################################################
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://112.33.8.105:9102/eureka/
+spring:
+  profiles: development
+datasource:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: educloud
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@112.33.2.95:9992:educloud
+datasource-act:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: eduact
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@112.33.2.95:9992:educloud
+datasource-xxt:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: eduxxt
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@112.33.2.95:9992:educloud
+redis:
+  user:
+    host: 127.0.0.1
+    port: 6379
+  res:
+    host: 10.102.56.224
+    port: 9112
+  other:
+    host: 127.0.0.1
+    port: 6379
+#memcached.user.servers: '10.102.56.224:11211'
+#memcached.business.servers: '10.102.56.224:11211'
+memcached.user.servers: '127.0.0.1:11211'
+memcached.business.servers: '127.0.0.1:11211'
+base.manage.extranet.url: http://112.33.8.104:9120/dev-edumanage
+base.manage.intranet.url: http://10.102.56.193:9120/dev-edumanage
+solr.serverUrl: http://112.33.8.104:9117/solr
+#solr.cloud.zkHost: 192.168.196.131:2181,192.168.196.132:2181,192.168.196.133:2181
+mongodb.serverUrl: mongodb://educloud:UrOrynGK@112.33.2.49:9300/educloudapi
+#mongodb.serverUrl: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
+spring.activemq.broker-url: tcp://localhost:61616
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.102.56.227:9102/eureka/
+spring:
+  profiles: dev-server
+datasource:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: educloud
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@10.102.56.223:1521:educloud
+datasource-act:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: eduact
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@112.33.2.95:9992:educloud
+redis:
+  user:
+    host: 10.102.56.224
+    port: 9111
+  res:
+    host: 10.102.56.224
+    port: 9112
+  other:
+    host: 10.102.56.224
+    port: 9113
+memcached.user.servers: '10.102.56.224:11211'
+memcached.business.servers: '10.102.56.224:11211'
+base.manage.extranet.url: http://112.33.8.104:9120/dev-edumanage
+base.manage.intranet.url: http://10.102.56.193:9120/dev-edumanage
+solr.serverUrl: http://10.102.56.193:9117/solr/
+#solr.cloud.zkHost: 192.168.196.131:2181,192.168.196.132:2181,192.168.196.133:2181
+mongodb.serverUrl: mongodb://educloud:UrOrynGK@112.33.2.49:9300/educloudapi
+#mongodb.serverUrl: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.111.96.11:9102/eureka/
+spring:
+  profiles: test-server
+datasource:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: educloud
+  password: 0auBU1d1
+  url: jdbc:oracle:thin:@10.111.96.18:1521:educloud
+  #jdbc:oracle:thin:@10.111.96.18:9012:educloud
+datasource-act:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: eduact
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@10.111.96.18:1521:educloud
+datasource-xxt:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: eduxxt
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@10.111.96.18:1521:educloud
+redis:
+  user:
+    host: 10.111.96.16
+    port: 9101
+  res:
+    host: 10.111.96.16
+    port: 9101
+  other:
+    host: 10.111.96.16
+    port: 9101
+memcached.user.servers: '10.111.96.16:9102'
+memcached.business.servers: '10.111.96.16:9102'
+base.manage.extranet.url: http://edu.10086.cn/test-edumanage
+base.manage.intranet.url: http://10.111.96.4:9120/test-edumanage
+#solr.serverUrl: http://112.35.7.164:9005/solr/
+solr.serverUrl: http://10.111.96.4:9107/solr/
+#solr.cloud.zkHost: 192.168.196.131:2181,192.168.196.132:2181,192.168.196.133:2181
+mongodb.serverUrl: mongodb://edureport:8ZpivkC8@10.111.96.17:9101/educloudapi
+#mongodb.serverUrl: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
+spring.activemq.broker-url: tcp://10.111.96.8:61616
+
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.102.56.136:9037/eureka/
+spring:
+  profiles: combined-server
+datasource:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: educloud
+  password: R9nBppJB
+  url: jdbc:oracle:thin:@10.102.56.102:1521:educloud
+
+redis:
+  sentinel:
+    enable: true
+  user:
+    sentinels: '10.102.56.113:9220'
+    masterName: 'sentinel0'
+  res:
+    sentinels: '10.102.56.113:9221'
+    masterName: 'sentinel1'
+
+memcached.user.servers: '10.102.56.113:9100'
+memcached.business.servers: '10.102.56.113:9100'
+
+solr.serverUrl: http://10.102.56.9:8890/solr/
+#solr.cloud.zkHost: 192.168.196.131:2181,192.168.196.132:2181,192.168.196.133:2181
+mongodb.serverUrl: mongodb://10.102.56.113:9101/educloudapi
+#mongodb.serverUrl: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
+
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.111.24.223:9101/eureka/
+spring:
+  profiles: online-server
+datasource:
+  driver-class-name: oracle.jdbc.OracleDriver
+  username: educloud
+  password: 0auBU1d1
+  url: jdbc:oracle:thin:@(description=(address_list= (address=(host=192.168.1.74) (protocol=tcp)(port=1521))(address=(host=192.168.1.75)(protocol=tcp) (port=1521))(address=(host=192.168.1.76)(protocol=tcp) (port=1521)) (load_balance=yes)(failover=yes))(connect_data=(service_name= educloud)))
+  #jdbc:oracle:thin:@10.111.96.18:9012:educloud
+redis:
+  user:
+    host: 10.111.24.144
+    port: 9000
+  res:
+    host: 10.111.24.144
+    port: 9000
+  other:
+    host: 10.111.24.144
+    port: 9000
+memcached.user.servers: '10.111.24.142:9000'
+memcached.business.servers: '10.111.24.142:9000'
+base.manage.extranet.url: http://edu.10086.cn/basemanage
+base.manage.intranet.url: http://10.111.25.36:9100/basemanage
+#solr.serverUrl: http://112.35.7.164:9005/solr/
+solr.serverUrl: http://10.111.24.113:9107/solr/
+#solr.cloud.zkHost: 192.168.196.131:2181,192.168.196.132:2181,192.168.196.133:2181
+mongodb.serverUrl: mongodb://educloud:h3m]6OVi@10.111.24.231:9000/educloudapi
+#mongodb.serverUrl: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
+
+
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka1:9001/eureka/,http://eureka2:9002/eureka/,http://eureka3:9003/eureka/
+spring:
+  profiles: docker-test
+
